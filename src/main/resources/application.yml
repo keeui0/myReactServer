@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: myHomeProject
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: asd123
+    url: jdbc:mysql://localhost:3306/order_db?characterEncoding=UTF-8&serverTimezone=Asia/Seoul
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+mybatis:
+  config-location: /mappers/*.xml
+
+
+

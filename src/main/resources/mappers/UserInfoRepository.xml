@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.myhome_project.api.repository.UserInfoRepository">
+
+    <select id="select" resultType="com.example.myhome_project.api.domain.UserVo">
+        select *
+        from order_db.usermaster
+    </select>
+    <select id="findById" resultType="com.example.myhome_project.api.domain.UserInfo">
+        select *
+        from order_db.usermaster
+        where userid like #{userId}
+    </select>
+    <select id="findByName" resultType="com.example.myhome_project.api.domain.UserInfo">
+        select *
+        from order_db.usermaster
+        where username like #{userName}
+    </select>
+    <select id="findByEmail" resultType="com.example.myhome_project.api.domain.UserInfo">
+        select *
+        from order_db.usermaster
+        where useremail like #{userEmail}
+    </select>
+    <select id="findAll" resultType="com.example.myhome_project.api.domain.UserInfo">
+        select *
+        from order_db.usermaster
+    </select>
+
+    <insert id="insert">
+        insert into order_db.usermaster(userid, userpw, username,
+                                        useradd, userphone, useremail,
+                                        createdate, updatedate, deletedate)
+        values (
+                   #{userId}, #{userPw},#{userName},
+                #{userAdd},#{userPhone},#{userEmail},
+                #{createDate},#{updateDate},#{deleteDate}
+               )
+    </insert>
+    <insert id="save"></insert>
+
+    <update id="update">
+        update order_db.usermaster
+        set userid      = #{userId},
+            userpw      = #{userPw},
+            username    = #{userName},
+            useradd     = #{userAdd},
+            userphone   = #{userPhone},
+            useremail   = #{userEmail},
+            createdate  = #{createDate},
+            updatedate  = #{updateDate},
+            deletedate  = #{deleteDate}
+    </update>
+</mapper>

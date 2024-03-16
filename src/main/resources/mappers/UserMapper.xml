@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.myhome_project.api.repository.UserInfoRepository">
+
+    <select id="select" resultType="com.example.myhome_project.api.domain.UserVo">
+        select *
+        from order_db.usermaster
+    </select>
+
+    <insert id="insert">
+        insert into order_db.usermaster(userid, userpw, username, useradd, userphone, useremail,
+                                        createdate, updatedate, deletedate)
+        values (
+                #{userId}, #{userPw},#{userName},#{userAdd},#{userPhone},#{userEmail},#{createDate},#{updateDate},#{deleteDate}
+               )
+    </insert>
+</mapper>
